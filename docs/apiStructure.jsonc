@@ -1,0 +1,220 @@
+// Book Schema
+{
+    "uuid": "uuid",
+    "thumbnail" : "imageURL",
+    "name": "string",
+    "description":"string",
+    "author" : "string",
+    "type" : [ "string" , "string" , "string"],
+    "ratings" : "int",
+    "price"  : "float",
+    "availableQuantity": "int",
+    "createdAt": "UINIX timestamp"
+}
+// SignUp Users
+{
+    "uuid": "uuid",
+    "name": "string",
+    "email": "string",
+    "password": "hashed",
+    "seller" : "True / False",
+}
+// Purchases
+{
+    "uuid": "uuid",
+    "user_uuid" : "uuid",
+    "timestamp" : "UINIX timestamp",
+    "book_uuid": "uuid",
+}
+// ==============================================================
+// APIS
+Book Types : ["Fantasy","Dystopian", "Action","Mystery", "Horror", "Sci-Fi"]
+
+// Create Book
+// Endpoint :  /books
+// METHOD  : POST
+// Body
+{
+    "thumbnail" : "imageURL",
+    "name": "string",
+    "description":"string",
+    "author" : "string",
+    "type" : [ "string" , "string" , "string"],
+    "ratings" : "int",
+    "price"  : "float",
+    "availableQuantity": "int",
+}
+// Response
+{
+    "message" : "",
+    "data" : {
+        "uuid": "uuid",
+        "thumbnail" : "imageURL",
+        "name": "string",
+        "description":"string",
+        "author" : "string",
+        "type" : [ "string" , "string" , "string"],
+        "ratings" : "int",
+        "price"  : "float",
+        "availableQuantity": "int",
+        "createdAt": "UINIX timestamp"
+    }
+}
+
+// Update Book
+// Endpoint :  /books
+// METHOD  : PUT
+// Body
+{
+    "thumbnail" : "imageURL", //Optional
+    "name": "string",  //Optional
+    "description":"string", //Optional
+    "author" : "string", //Optional
+    "type" : [ "string" , "string" , "string"], //Optional
+    "ratings" : "int",  //Optional
+    "price"  : "float", //Optional
+    "availableQuantity": "int", //Optional
+}
+// Response
+{
+    "message" : "", 
+    "data" : {
+        "uuid": "uuid",
+        "thumbnail" : "imageURL",
+        "name": "string",
+        "description":"string",
+        "author" : "string",
+        "type" : [ "string" , "string" , "string"],
+        "ratings" : "int",
+        "price"  : "float",
+        "availableQuantity": "int",
+        "createdAt": "UINIX timestamp"
+    }
+}
+
+// Delete Book
+// Endpoint :  /books
+// METHOD : Delete
+// Body
+{
+    "uuid": "uuid",
+}
+
+// Response 
+{
+    "message" : "",
+    "data" : {}
+}
+
+
+// Search Books
+// Endpoint :  /books
+// METHOD : GET
+// Query Params 
+{
+    "uuid": "uuid", //Optional
+    "rating" : "", //Optional
+    "type" : "", //Optional
+    "stringQuery": ""  //Optional
+}
+
+// Response
+{
+    "message" : "",
+    "data" : [
+        {
+            "uuid": "uuid",
+            "thumbnail" : "imageURL",
+            "name": "string",
+            "description":"string",
+            "author" : "string",
+            "type" : [ "string" , "string" , "string"],
+            "ratings" : "int",
+            "price"  : "float",
+            "availableQuantity": "int",
+            "createdAt": "UINIX timestamp"
+        }
+    ]
+}
+
+//  Create Purchases
+// Endpoint  : /purchases/<USERID>/<BOOKID>
+// METHOD  : POST
+
+// Response 
+{
+    "uuid": "uuid",
+    "user_uuid" : "uuid",
+    "timestamp" : "UINIX timestamp",
+    "book_uuid": "uuid",
+    "quantity" : "int"
+}
+
+// GET Purchases
+// Endpoint : /purchases/<USERID
+// METHOD : GET 
+
+// Response 
+{
+    "message" : "",
+    "data" : [
+        {
+            "uuid": "uuid",
+            "user_uuid" : "uuid",
+            "timestamp" : "UINIX timestamp",
+            "book_uuid": "uuid",
+            "quantity" : "int"
+        }
+    ]
+}
+
+// Create User
+//  Endpoint : /users
+// Method : POST 
+// Body
+{
+    "name": "string",
+    "email": "string",
+    "password": "hashed",
+    "seller" : "True / False",
+}
+
+// Response
+{
+    "message" : "",
+    "data" : {
+        "uuid": "uuid",
+        "name": "string",
+        "email": "string",
+        "seller" : "True / False",
+    }
+}
+
+// Check Login
+// Endpoint : /users
+// Method : GET
+// Body
+{
+    "email" : "",
+    "password" : "",
+}
+
+// Response
+{
+    "message" : "",
+    "data" : {
+        "uuid": "uuid",
+        "name": "string",
+        "email": "string",
+        "seller" : "True / False",
+    }
+}
+
+// Delete User
+// Endpoint : /users/<USERID>
+// Method : DELETE 
+// Response
+{
+    "message" : "",
+    "data" : {}
+}
