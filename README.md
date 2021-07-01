@@ -2,6 +2,8 @@
 
 docker run -p 9042:9042 --rm --name cassandra -d cassandra:4.0
 
+Wait for Docker to create Cassandra Container and a superuser of name cassandra (can be viewved in dockerhub logs)
+
 docker exec -it cassandra /bin/bash
 
 cqlsh
